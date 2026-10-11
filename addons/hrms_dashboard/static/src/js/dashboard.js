@@ -2,7 +2,7 @@
 import { registry } from "@web/core/registry";
 import { session } from "@web/session";
 import { _t } from "@web/core/l10n/translation";
-import { onMounted, Component } from "@odoo/owl";
+import { onMounted, Component, useProps } from "@odoo/owl";
 import { onWillStart, proxy, onWillUnmount } from "@odoo/owl";
 import { useService } from "@web/core/utils/hooks";
 import { WebClient } from "@web/webclient/webclient";
@@ -13,7 +13,7 @@ import { patch } from "@web/core/utils/patch";
 import { rpc } from "@web/core/network/rpc";
 export class HrDashboard extends Component{
     static template = 'HrDashboardMain';
-    static props = ["*"];
+    props = useProps();
     setup() {
         this.effect = useService("effect");
         this.action = useService("action");
